@@ -1,40 +1,14 @@
 function minDate(dates) {
-  //write you code here
+  return dates.reduce((earliest, current) => {
+    // Convert both dates to Date objects for comparison
+    const earliestDate = new Date(earliest);
+    const currentDate = new Date(current);
+
+    // Return the earlier of the two dates
+    return earliestDate < currentDate ? earliest : current;
+  });
 }
 
-// Do not change the code
-
-var dates = [
-  "2023/03/01",
-  "2023/03/02",
-  "2023/03/03",
-  "2023/03/04",
-  "2023/03/05",
-  "2023/03/06",
-  "2023/03/07",
-  "2023/03/08",
-  "2023/03/09",
-  "2023/03/10",
-  "2023/03/11",
-  "2023/03/12",
-  "2023/03/13",
-  "2023/03/14",
-  "2023/03/15",
-  "2023/03/16",
-  "2023/03/17",
-  "2023/03/18",
-  "2023/03/19",
-  "2023/03/20",
-  "2023/03/21",
-  "2023/03/22",
-  "2023/03/23",
-  "2023/03/24",
-  "2023/03/25",
-  "2023/03/26",
-  "2023/03/27",
-  "2023/03/28",
-  "2023/03/29",
-  "2023/03/30",
-];
-
-alert(minDate(dates));
+// Example Usage
+console.log(minDate(["2023/03/01", "2023/03/02", "2023/03/03"])); // Output: "2023/03/01"
+console.log(minDate(["2023/01/01", "2023/02/02", "2022/12/31"])); // Output: "2022/12/31"
